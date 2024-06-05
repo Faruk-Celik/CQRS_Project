@@ -1,0 +1,9 @@
+﻿namespace CQRS_Project.CQRS.Commands
+{
+    public class UpdateProductCommand
+    {
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public decimal ProductPrice { get; set; }
+    }
+}
