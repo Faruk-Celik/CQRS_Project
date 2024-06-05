@@ -8,12 +8,14 @@ namespace CQRS_Project.Controllers
     {
         private readonly GetProductQueryHandler _getProductQueryHandler;
         private readonly CreateProductCommandHandler _createProductCommandHandler;
+        private readonly RemoveProductCommandHandler _removeProductCommandHandler;
 
-        public ProductController ( GetProductQueryHandler getProductQueryHandler, CreateProductCommandHandler createProductCommandHandler )
+        public ProductController ( GetProductQueryHandler getProductQueryHandler, CreateProductCommandHandler createProductCommandHandler, RemoveProductCommandHandler removeProductCommandHandler )
         {
 
             _getProductQueryHandler = getProductQueryHandler;
             _createProductCommandHandler = createProductCommandHandler;
+            _removeProductCommandHandler = removeProductCommandHandler;
         }
 
         public IActionResult ProductResult ()
@@ -32,5 +34,12 @@ namespace CQRS_Project.Controllers
             _createProductCommandHandler.Handle(command);
             return RedirectToAction("ProductResult");
         }
+        public IActionResult RemoveProduct ( int id )
+        {
+           
+            _removeProductCommandHandler.Handle(new RemoveProductCommand(id));
+            return RedirectToAction("ProductResult");
+        }
+
     }
 }
