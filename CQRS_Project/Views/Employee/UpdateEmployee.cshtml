@@ -1,0 +1,30 @@
+﻿@model CQRS_Project.MediatorPattern.Results.GetEmployeeByIdQueryResult
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<form method="post">
+    <div class="container">
+        <br />
+        <div class="alert alert-primary"> Update Personnel </div>
+
+        <label>Id</label>
+        <input readonly type="text" asp-for="EmployeeID" class="form-control" />
+        <br />
+        <label>Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <br />
+        <label>Surname</label>
+        <input type="text" asp-for="Surname" class="form-control" />
+        <br />
+        <label>Staff Salary</label>
+        <input type="text" asp-for="Salary" class="form-control" />
+        <br />
+
+
+        <button class="btn btn-success">Update Staff</button>
+
+    </div>
+</form>
